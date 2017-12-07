@@ -1,7 +1,6 @@
 language: java
 sudo: false
-script: cd siren && mvn clean verify
-script: "mvn cobertura:cobertura"
+script: cd siren && mvn clean verify cobertura:cobertura
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
