@@ -3,4 +3,4 @@ sudo: false
 script: cd siren && mvn clean verify cobertura:cobertura
 
 after_success:
-  - - codecov
+  - codecov
