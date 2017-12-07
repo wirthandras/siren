@@ -4,4 +4,4 @@ script: cd siren && mvn clean verify cobertura:cobertura
 
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -t e4d71808-98fa-43d0-895f-f23def33d258
+  - bash <(curl -s https://codecov.io/bash)
