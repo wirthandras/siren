@@ -1,8 +1,5 @@
 package siren.jobs;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class JobFactory {
 
 	public static Doctor doctor = new Doctor();
@@ -32,12 +29,4 @@ public class JobFactory {
 		return null;
 	}
 
-	// TODO rename
-	public static Set<IJob> getAll() {
-		Set<IJob> jobs = new HashSet<IJob>();
-		jobs.add(paramedic);
-		jobs.add(nurse);
-		jobs.add(driver);
-		return jobs;
-	}
 }
