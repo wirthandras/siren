@@ -4,6 +4,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class JobFactoryTest {
+	
+	@Test
+	public void testConstructor() {
+		JobFactory factory = new JobFactory();
+		Assert.assertNotNull(factory);
+	}
 
 	@Test
 	public void testParamedic() {
