@@ -32,7 +32,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.7.0</version>
 				<configuration>
-					<compilerVersion>8.0</compilerVersion>
+					<compilerVersion>1.8</compilerVersion>
 				</configuration>
 			</plugin>
 		</plugins>
