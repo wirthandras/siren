@@ -76,7 +76,7 @@ public class ShiftsTest {
 		Shifts shifts = new Shifts(daysInMonth);
 		Shift shift = new Shift(3, 6, 18);
 		List<Shift> shiftsList = new ArrayList<Shift>();		
-		shiftsList.add(new Shift(4, 17, 6));
+		shiftsList.add(new Shift(5, 17, 6));
 		shifts.addShifts(shiftsList);
 		Shift adjecentShift = shifts.getAdjacentAfter(shift);
 		assertNull(adjecentShift);
