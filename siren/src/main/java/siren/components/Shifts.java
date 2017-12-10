@@ -32,7 +32,7 @@ public class Shifts {
 		if (dayShifts != null) {
 			dayShifts.add(shift);
 		} else {
-			dayShifts = new HashSet<>();
+			dayShifts = new HashSet<Shift>();
 			dayShifts.add(shift);
 			shiftsInMonth.put(day, dayShifts);
 		}
@@ -60,7 +60,7 @@ public class Shifts {
 	public Shift getAdjacentAfter(Shift actShift) {
 		List<Shift> shifts = getShiftsAsList();
 
-		List<Shift> toRemove = new ArrayList<>();
+		List<Shift> toRemove = new ArrayList<Shift>();
 		for (Shift s : shifts) {
 			if (s.compareTo(actShift) < 0) {
 				toRemove.add(s);

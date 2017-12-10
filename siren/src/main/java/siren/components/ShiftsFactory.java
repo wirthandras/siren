@@ -6,7 +6,7 @@ import java.util.List;
 public class ShiftsFactory {
 
 	public static List<Shift> createShifts(int daysInMonth) {
-		List<Shift> shifts = new ArrayList<>();
+		List<Shift> shifts = new ArrayList<Shift>();
 		for (int i = 1; i <= daysInMonth; i++) {
 
 			Shift m1 = new Shift(i, 6, 18);
