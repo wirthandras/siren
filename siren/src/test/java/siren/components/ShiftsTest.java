@@ -3,6 +3,7 @@ package siren.components;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -60,16 +61,23 @@ public class ShiftsTest {
 	}
 	
 	@Test
-	public void testGetAdjacentAfterMiddleRemoved_ShouldBeNull() {
+	public void testGetAdjacentAfterNextDay_ShouldBeNull() {
 		Shifts shifts = new Shifts(daysInMonth);
-		shiftsList.remove(6);
-		shiftsList.remove(6);
-		shiftsList.remove(6);
-		shiftsList.remove(6);
-		shiftsList.remove(6);
-		shiftsList.remove(6);
+		Shift shift = new Shift(3, 18, 6);
+		List<Shift> shiftsList = new ArrayList<Shift>();		
+		shiftsList.add(new Shift(4, 7, 12));
 		shifts.addShifts(shiftsList);
-		Shift shift = shiftsList.get(shiftsList.size() - 1);
+		Shift adjecentShift = shifts.getAdjacentAfter(shift);
+		assertNull(adjecentShift);
+	}
+	
+	@Test
+	public void testGetAdjacentAfterSameDay_ShouldBeNull() {
+		Shifts shifts = new Shifts(daysInMonth);
+		Shift shift = new Shift(3, 6, 18);
+		List<Shift> shiftsList = new ArrayList<Shift>();		
+		shiftsList.add(new Shift(4, 17, 6));
+		shifts.addShifts(shiftsList);
 		Shift adjecentShift = shifts.getAdjacentAfter(shift);
 		assertNull(adjecentShift);
 	}
