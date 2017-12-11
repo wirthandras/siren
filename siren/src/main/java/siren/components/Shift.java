@@ -3,14 +3,22 @@ package siren.components;
 public class Shift implements Comparable<Shift> {
 
 	private int day;
+	private int id;
 	private int from;
 	private int to;
+	private ECarType carType;
 
-	public Shift(int day, int from, int to) {
+	public Shift(int day, int id, int from, int to, ECarType carType) {
 		super();
 		this.day = day;
+		this.id = id;
 		this.from = from;
 		this.to = to;
+		this.carType = carType;
+	}
+	
+	public ECarType getCarType() {
+		return carType;
 	}
 
 	public boolean isNight() {
@@ -27,7 +35,7 @@ public class Shift implements Comparable<Shift> {
 
 	@Override
 	public String toString() {
-		return "{" + getDay() + ":" + getFrom() + "-" + getTo() + "}";
+		return "{" + getDay() + "/" + id + ":" + getFrom() + "-" + getTo() + "}";
 	}
 
 	public int getDay() {

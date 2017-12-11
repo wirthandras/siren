@@ -15,7 +15,16 @@ public class Shifts {
 
 	private Map<Integer, Set<Shift>> shiftsInMonth;
 
+	public Shifts(int daysInMonth, List<Shift> shifts) {
+		init(daysInMonth);
+		addShifts(shifts);
+	}
+
 	public Shifts(int daysInMonth) {
+		init(daysInMonth);
+	}
+
+	private void init(int daysInMonth) {
 		this.shiftsInMonth = new HashMap<Integer, Set<Shift>>();
 		this.daysInMonth = daysInMonth;
 	}
@@ -24,6 +33,10 @@ public class Shifts {
 		for (Shift s : shifts) {
 			addShift(s);
 		}
+	}
+
+	public Set<Shift> getShiftsForDay(int day) {
+		return shiftsInMonth.get(day);
 	}
 
 	private void addShift(Shift shift) {
