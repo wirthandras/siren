@@ -19,6 +19,6 @@ public class ReadWorkersTest {
 	@Test
 	public void test() throws IOException {
 		File testFile = new File("src/test/resources/siren/persistence/testEmployees.txt");
-		assertEquals(35, ReadWorkers.readEmployees(testFile).size());
+		assertEquals(5, ReadWorkers.readEmployees(testFile).size());
 	}
 }

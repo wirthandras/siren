@@ -1,40 +1,10 @@
 IJobDOCTOR
-Dr. Császár Béla
+Dr. Bela Bela
 IJobMENTO_TISZT
-Zilinszki Tibor
-Czíner Gábor
-Kekk Evelin
-Reményi László
+Tibor Tibor
 IJobAPOLO
-Angyal József
-Bátyai László
-Bölcskei Martin
-Csupó Gábor
-Gál Bálint
-Gilián Zsolt
-Hellenpárt Róbert
-Huszár Tamás
-Koprivanacz Norbert
-Miskolczi Csaba
+Andras Andras
 IJobSZAKAPOLO
-Nagy Sándor
-Nyirati László
-Papp Zsolt id.
-Papp Zsolt ifj.
-Sipos Mihály
+Misi Misi
 IJobDRIVER
-Papp József
-Bogyai Tamás
-Bokányi Zoltán
-Gaál Miklós 
-Hidas Pál
-Horváth Imre
-Kalocsai György
-Kenyeres Sándor
-Krékity Zoltán
-Laki Béla
-Pertics Zoltán
-Pintér Csaba
-Rákóczy László
-Rubesch Norbert 
-Szász Ferenc
+Ferenc Ferenc
