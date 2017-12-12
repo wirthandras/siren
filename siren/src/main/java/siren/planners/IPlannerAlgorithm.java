@@ -1,12 +1,10 @@
 package siren.planners;
 
-import java.util.List;
-
 import siren.components.Plan;
 import siren.components.Shifts;
-import siren.jobs.Employee;
+import siren.jobs.EmployeeService;
 
 public interface IPlannerAlgorithm {
 
-	public Plan plan(Shifts shifts, List<Employee> employees);
+	public Plan plan(Shifts shifts, EmployeeService employeeService);
 }

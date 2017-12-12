@@ -10,7 +10,6 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 public class ShiftsTest {
 
@@ -23,7 +22,7 @@ public class ShiftsTest {
 	@Before
 	public void setup() {
 		shiftsList = ShiftsFactory.createShifts(daysInMonth);
-		carType = Mockito.any(ECarType.class);
+		carType = ECarType.ESETKOCSI;
 	}
 
 	@Test
