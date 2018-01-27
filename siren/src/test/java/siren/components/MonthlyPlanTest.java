@@ -28,7 +28,7 @@ public class MonthlyPlanTest {
 		LocalDate date = LocalDate.of(2000, 3, 2);
 		EmployeeService employeeService = Mockito.mock(EmployeeService.class);
 		
-		 List<Shift> shifts = new ArrayList<>();
+		 List<Shift> shifts = new ArrayList<Shift>();
 		 shifts.add(new Shift(2, 3, 3, 16, ECarType.ESETKOCSI));
 		 shifts.add(new Shift(5, 4, 5, 11, ECarType.ESETKOCSI));
 		
