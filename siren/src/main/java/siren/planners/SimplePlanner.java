@@ -23,12 +23,14 @@ public class SimplePlanner implements IPlannerAlgorithm {
 		map = new HashMap<Shift, Set<Employee>>();
 		for (int i = 1; i <= shifts.getDaysInMonth(); i++) {
 			Set<Shift> dailyShifts = shifts.getShiftsForDay(i);
-			for (Shift s : dailyShifts) {
-				ECarType carType = s.getCarType();
-				Set<IJob> jobs = CarRequiredJobs.get(carType);
-				for (IJob job : jobs) {
-					Employee e = findNext(job, employeeService);
-					add(s, e);
+			if (dailyShifts != null) {
+				for (Shift s : dailyShifts) {
+					ECarType carType = s.getCarType();
+					Set<IJob> jobs = CarRequiredJobs.get(carType);
+					for (IJob job : jobs) {
+						Employee e = findNext(job, employeeService);
+						add(s, e);
+					}
 				}
 			}
 		}
@@ -45,7 +47,7 @@ public class SimplePlanner implements IPlannerAlgorithm {
 		} else {
 			employees.add(e);
 		}
-		
+
 	}
 
 	private Employee findNext(IJob job, EmployeeService employeeService) {

@@ -21,8 +21,9 @@ public class MonthlyPlan {
 		this.shifts = new Shifts(daysInMonth, shifts);
 	}
 
-	public void doPlan(IPlannerAlgorithm algorithm) {
+	public Plan doPlan(IPlannerAlgorithm algorithm) {
 		this.plan = algorithm.plan(shifts, employeeService);
+		return plan;
 	}
 
 	public Plan getPlan() {
