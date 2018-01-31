@@ -34,7 +34,7 @@ public class SimplePlanner implements IPlannerAlgorithm {
 				}
 			}
 		}
-		Plan plan = new Plan(map);
+		Plan plan = new Plan(shifts.getDaysInMonth(), map);
 		return plan;
 	}
 
