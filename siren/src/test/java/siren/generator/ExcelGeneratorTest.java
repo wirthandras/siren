@@ -11,6 +11,7 @@ import org.mockito.Mockito;
 import siren.components.Plan;
 import siren.jobs.Employee;
 import siren.jobs.EmployeeService;
+import siren.jobs.IJob;
 import siren.jobs.JobFactory;
 import siren.outofoffice.Holidays;
 import siren.outofoffice.OutOfOffice;
@@ -27,7 +28,7 @@ public class ExcelGeneratorTest {
 		EmployeeService employeeService = Mockito.mock(EmployeeService.class);
 		Set<Employee> emps = new HashSet<Employee>();
 		emps.add(new Employee("A", JobFactory.driver, false));
-		Mockito.when(employeeService.filter(Mockito.any())).thenReturn(emps);
+		Mockito.when(employeeService.filter(Mockito.any(IJob.class))).thenReturn(emps);
 
 		Holidays h = Mockito.mock(Holidays.class);
 		Set<Integer> holidays = new HashSet<Integer>();
