@@ -1,6 +1,6 @@
 package siren.jobs;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
 
 	private String name;
 	private IJob job;
@@ -23,6 +23,11 @@ public class Employee {
 
 	public boolean isIs24hService() {
 		return is24hService;
+	}
+
+	@Override
+	public int compareTo(Employee o) {
+		return this.name.compareTo(o.getName());
 	}
 	
 }
