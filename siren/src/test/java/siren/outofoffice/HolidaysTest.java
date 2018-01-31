@@ -10,7 +10,7 @@ public class HolidaysTest {
 	private EOutType t;
 
 	@Before
-	public void setup() {
+	public void setUp() {
 		h = new Holidays();
 		t = EOutType.HOLIDAY;
 		h.put(1, t);

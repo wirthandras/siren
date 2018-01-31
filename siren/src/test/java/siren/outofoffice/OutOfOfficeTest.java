@@ -13,7 +13,7 @@ public class OutOfOfficeTest {
 	private OutOfOffice o;
 	
 	@Before
-	public void setup() {
+	public void setUp() {
 		employee = Mockito.mock(Employee.class);
 		o = new OutOfOffice();
 	}
