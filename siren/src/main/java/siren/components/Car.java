@@ -14,7 +14,7 @@ public class Car {
 		return identifier;
 	}
 
-	public ECarType getCarType() {
+	public ECarType getType() {
 		return type;
 	}
 

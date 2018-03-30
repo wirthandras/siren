@@ -22,7 +22,7 @@ public class CarTest {
 
 	@Test
 	public void testCarType() {
-		assertEquals(ECarType.ESETKOCSI, car.getCarType());
+		assertEquals(ECarType.ESETKOCSI, car.getType());
 	}
 
 	@Test
