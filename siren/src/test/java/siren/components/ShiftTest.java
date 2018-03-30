@@ -12,37 +12,37 @@ public class ShiftTest {
 	private ECarType carType = ECarType.ESETKOCSI;
 
 	@Test
-	public void testShiftIsNight_ShouldBeFalse() {
+	public void testShiftIsNightShouldBeFalse() {
 		Shift shift = new Shift(day, idOfshift, 8, 18, carType);
 		Assert.assertFalse(shift.isNight());
 	}
 
 	@Test
-	public void testShiftIsNight_ShouldBeTrue() {
+	public void testShiftIsNightShouldBeTrue() {
 		Shift shift = new Shift(day, idOfshift, 18, 6, carType);
 		Assert.assertTrue(shift.isNight());
 	}
 
 	@Test
-	public void testShiftDuration_ShouldBe12Hour() {
+	public void testShiftDurationShouldBe12Hour() {
 		Shift shift = new Shift(day, idOfshift, 18, 6, carType);
 		Assert.assertEquals(12, shift.duration());
 	}
 
 	@Test
-	public void testShiftIsNight_ShouldBe7Hour() {
+	public void testShiftIsNightShouldBe7Hour() {
 		Shift shift = new Shift(day, idOfshift, 8, 15, carType);
 		Assert.assertEquals(7, shift.duration());
 	}
 
 	@Test
-	public void testShiftGetDay_ShouldBe15() {
+	public void testShiftGetDayShouldBe15() {
 		Shift shift = new Shift(15, idOfshift, testFrom, testTo, carType);
 		Assert.assertEquals(15, shift.getDay());
 	}
 
 	@Test
-	public void testGetCarType_ShouldBeRohamkocsi() {
+	public void testGetCarTypeShouldBeRohamkocsi() {
 		Shift shift = new Shift(day, idOfshift, testFrom, testTo, ECarType.ROHAMKOCSI);
 		Assert.assertEquals(ECarType.ROHAMKOCSI, shift.getCarType());
 	}

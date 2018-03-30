@@ -6,7 +6,7 @@ import org.junit.Test;
 public class ParamedicTest {
 	
 	@Test
-	public void testParamedicNightWorking_ShouldBeTrue() {
+	public void testParamedicNightWorkingShouldBeTrue() {
 		Paramedic paramedic = new Paramedic();
 		
 		Assert.assertTrue(paramedic.isNightWorking());
