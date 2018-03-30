@@ -6,7 +6,7 @@ import org.junit.Test;
 public class NurseTest {
 
 	@Test
-	public void testNurseNightWorking_ShouldBeFalse() {
+	public void testNurseNightWorkingShouldBeFalse() {
 		Nurse n = new Nurse();
 
 		Assert.assertFalse(n.isNightWorking());

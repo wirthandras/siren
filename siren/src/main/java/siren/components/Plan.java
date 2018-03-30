@@ -35,12 +35,7 @@ public class Plan {
 	}
 
 	public boolean isNormalShiftDay(Employee employee, int day) {
-		for (Shift shift : filterByDay(day)) {
-			// TODO only hits the first shift in a day, ordering not ensured
-			return shift.getCarType() != null;
-		}
-		// may throw an exception
-		return false;
+		return filterByDay(day).stream().anyMatch(shift -> shift.getCarType() != null);
 	}
 
 	public int getTime(Employee employee, int actDay, boolean start) {

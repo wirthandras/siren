@@ -20,7 +20,7 @@ public class ShiftsTest {
 	private ECarType carType;
 	
 	@Before
-	public void setup() {
+	public void setUp() {
 		shiftsList = ShiftsFactory.createShifts(daysInMonth);
 		carType = ECarType.ESETKOCSI;
 	}
@@ -64,7 +64,7 @@ public class ShiftsTest {
 	}
 
 	@Test
-	public void testGetAdjacentAfterWithLastShift_ShouldBeNull() {
+	public void testGetAdjacentAfterWithLastShiftShouldBeNull() {
 		Shifts shifts = new Shifts(daysInMonth);
 		shifts.addShifts(shiftsList);
 		Shift shift = shiftsList.get(shiftsList.size() - 1);
@@ -73,7 +73,7 @@ public class ShiftsTest {
 	}
 	
 	@Test
-	public void testGetAdjacentAfterNextDay_ShouldBeNull() {
+	public void testGetAdjacentAfterNextDayShouldBeNull() {
 		Shifts shifts = new Shifts(daysInMonth);
 		Shift shift = new Shift(3, 3, 18, 6, carType);
 		List<Shift> shiftsList = new ArrayList<Shift>();		
@@ -84,7 +84,7 @@ public class ShiftsTest {
 	}
 	
 	@Test
-	public void testGetAdjacentAfterSameDay_ShouldBeNull() {
+	public void testGetAdjacentAfterSameDayShouldBeNull() {
 		Shifts shifts = new Shifts(daysInMonth);
 		Shift shift = new Shift(3, 3, 6, 18, carType);
 		List<Shift> shiftsList = new ArrayList<Shift>();		
@@ -95,7 +95,7 @@ public class ShiftsTest {
 	}
 	
 	@Test
-	public void testGetShiftsForDay_ShouldBeTwoShiftOnTestDay() {
+	public void testGetShiftsForDayShouldBeTwoShiftOnTestDay() {
 		int dayToTest = 5;
 		
 		Shifts shifts = new Shifts(daysInMonth);
@@ -109,7 +109,7 @@ public class ShiftsTest {
 	}
 	
 	@Test
-	public void testGetShiftsForDay_ShouldBeNullOnTestDay() {
+	public void testGetShiftsForDayShouldBeNullOnTestDay() {
 		int dayToTest = 5;
 		
 		Shifts shifts = new Shifts(daysInMonth);

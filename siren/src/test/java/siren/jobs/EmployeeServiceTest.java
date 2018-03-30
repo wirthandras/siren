@@ -15,7 +15,7 @@ public class EmployeeServiceTest {
 	private List<Employee> employees;
 
 	@Before
-	public void setup() {
+	public void setUp() {
 		employees = new ArrayList<Employee>();
 		employees.add(new Employee("testDoctor1", JobFactory.doctor, true));
 		employees.add(new Employee("testDoctor2", JobFactory.doctor, false));

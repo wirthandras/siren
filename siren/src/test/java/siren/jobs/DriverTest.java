@@ -6,7 +6,7 @@ import org.junit.Test;
 public class DriverTest {
 
 	@Test
-	public void testDriverNightWorking_ShouldBeTrue() {
+	public void testDriverNightWorkingShouldBeTrue() {
 		Driver driver = new Driver();
 
 		Assert.assertTrue(driver.isNightWorking());
