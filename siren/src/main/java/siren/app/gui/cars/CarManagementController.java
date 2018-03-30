@@ -17,6 +17,13 @@ import siren.components.ECarType;
 public class CarManagementController implements Initializable {
 
 	private Model model;
+	
+	@FXML
+	public TextField carIdentifier;
+	@FXML
+	public ChoiceBox<ECarType> carType;
+	@FXML
+	public TableView<Car> tableView;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -34,13 +41,6 @@ public class CarManagementController implements Initializable {
 		tableView.getColumns().add(colType);
 
 	}
-
-	@FXML
-	public TextField carIdentifier;
-	@FXML
-	public ChoiceBox<ECarType> carType;
-	@FXML
-	public TableView<Car> tableView;
 
 	@FXML
 	public void add() {

@@ -97,11 +97,7 @@ public class Shifts {
 			return shift.getFrom() == actShift.getTo();
 		} else {
 			if (actShift.getDay() + 1 == shift.getDay()) {
-				if (actShift.getTo() == shift.getFrom()) {
-					return true;
-				} else {
-					return false;
-				}
+				return actShift.getTo() == shift.getFrom();
 			} else {
 				return false;
 			}

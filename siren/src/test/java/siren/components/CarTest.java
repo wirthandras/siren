@@ -11,7 +11,7 @@ public class CarTest {
 	private Car car;
 
 	@Before
-	public void setup() {
+	public void setUp() {
 		car = new Car(IDENTIFIER, ECarType.ESETKOCSI);
 	}
 
