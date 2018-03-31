@@ -87,15 +87,17 @@ public class ExcelGenerator {
 
 	private void createEmployeeTable(HSSFWorkbook workbook, HSSFSheet sheet, int actRow, Set<Employee> employees,
 			int day) {
+		
+		int localRowIndex = actRow;
 		List<Employee> employeeList = new ArrayList<Employee>(employees);
 		Collections.sort(employeeList);
 		for (int i = 0; i < employees.size(); i++) {
 
 			Employee emp = employeeList.get(i);
-			HSSFRow rowStart = sheet.createRow(actRow);
-			actRow++;
-			HSSFRow rowFinish = sheet.createRow(actRow);
-			actRow++;
+			HSSFRow rowStart = sheet.createRow(localRowIndex);
+			localRowIndex++;
+			HSSFRow rowFinish = sheet.createRow(localRowIndex);
+			localRowIndex++;
 
 			oneRow(workbook, rowStart, emp, day, true);
 			oneRow(workbook, rowFinish, emp, day, false);
