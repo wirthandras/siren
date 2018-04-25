@@ -17,7 +17,7 @@ import siren.components.ECarType;
 public class CarManagementController implements Initializable {
 
 	private Model model;
-	
+
 	@FXML
 	public TextField carIdentifier;
 	@FXML
@@ -31,25 +31,33 @@ public class CarManagementController implements Initializable {
 		carType.getItems().addAll(ECarType.values());
 
 		// Create column UserName (Data type of String).
-		TableColumn<Car, String> colIdentifier = new TableColumn<Car, String>("Rendszám");
-		TableColumn<Car, String> colType = new TableColumn<Car, String>("Típus");
+		TableColumn<Car, String> columnIdentifier = new TableColumn<Car, String>("Rendszï¿½m");
+		TableColumn<Car, String> columnType = new TableColumn<Car, String>("Tï¿½pus");
 
-		colIdentifier.setCellValueFactory(new PropertyValueFactory<>("identifier"));
-		colType.setCellValueFactory(new PropertyValueFactory<>("type"));
+		columnIdentifier.setCellValueFactory(new PropertyValueFactory<>("identifier"));
+		columnType.setCellValueFactory(new PropertyValueFactory<>("type"));
 
-		tableView.getColumns().add(colIdentifier);
-		tableView.getColumns().add(colType);
+		tableView.getColumns().add(columnIdentifier);
+		tableView.getColumns().add(columnType);
 
 	}
 
 	@FXML
 	public void add() {
-		String identifier = carIdentifier.getText();
-		ECarType type = carType.getSelectionModel().getSelectedItem();
-		Car car = new Car(identifier, type);
-		model.addCar(car);
-		
-		tableView.getItems().clear();
-		tableView.getItems().addAll(model.getCars());
+		String cid = carIdentifier.getText();
+		if (idIsUnique(cid)) {
+			ECarType type = carType.getSelectionModel().getSelectedItem();
+			Car car = new Car(cid, type);
+			model.addCar(car);
+
+			tableView.getItems().clear();
+			tableView.getItems().addAll(model.getCars());
+		} else {
+			// TODO feedback for user the given Identifier is already exist
+		}
+	}
+
+	private boolean idIsUnique(String identifier) {
+		return !model.identifierIsExist(identifier);
 	}
 }

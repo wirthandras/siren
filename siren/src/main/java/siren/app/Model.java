@@ -11,7 +11,7 @@ public class Model {
 
 	private List<Car> cars;
 
-	private Model() {
+	Model() {
 		cars = new ArrayList<Car>();
 	}
 
@@ -28,5 +28,9 @@ public class Model {
 
 	public List<Car> getCars() {
 		return cars;
+	}
+	
+	public boolean identifierIsExist(String newIdentifier) {
+		return cars.stream().anyMatch(p -> p.getIdentifier().equals(newIdentifier));
 	}
 }
