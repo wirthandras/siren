@@ -36,9 +36,11 @@ public class CarManagementController implements Initializable {
 		carType.getItems().addAll(ECarType.values());
 
 		// Create column UserName (Data type of String).
-		TableColumn<Car, String> columnIdentifier = new TableColumn<Car, String>(
-				resources.getString(TextIds.IDENTIFIER));
-		TableColumn<Car, String> columnType = new TableColumn<Car, String>(resources.getString(TextIds.TYPE));
+		String labelId = resources.getString(TextIds.IDENTIFIER);
+		String labelType = resources.getString(TextIds.TYPE);
+
+		TableColumn<Car, String> columnIdentifier = new TableColumn<Car, String>(labelId);
+		TableColumn<Car, String> columnType = new TableColumn<Car, String>(labelType);
 
 		columnIdentifier.setCellValueFactory(new PropertyValueFactory<>("identifier"));
 		columnType.setCellValueFactory(new PropertyValueFactory<>("type"));
