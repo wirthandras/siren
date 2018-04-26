@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -25,16 +26,18 @@ public class CarManagementController implements Initializable {
 	public ChoiceBox<ECarType> carType;
 	@FXML
 	public TableView<Car> tableView;
+	@FXML
+	public Button buttonDelete;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		
+
 		model = Model.getInstance();
 		carType.getItems().addAll(ECarType.values());
 
 		// Create column UserName (Data type of String).
-		TableColumn<Car, String> columnIdentifier = new TableColumn<Car, String>(resources.getString(TextIds.IDENTIFIER));
+		TableColumn<Car, String> columnIdentifier = new TableColumn<Car, String>(
+				resources.getString(TextIds.IDENTIFIER));
 		TableColumn<Car, String> columnType = new TableColumn<Car, String>(resources.getString(TextIds.TYPE));
 
 		columnIdentifier.setCellValueFactory(new PropertyValueFactory<>("identifier"));
@@ -42,6 +45,11 @@ public class CarManagementController implements Initializable {
 
 		tableView.getColumns().add(columnIdentifier);
 		tableView.getColumns().add(columnType);
+
+		buttonDelete.setOnAction(e -> {
+			Car selectedItem = tableView.getSelectionModel().getSelectedItem();
+			tableView.getItems().remove(selectedItem);
+		});
 
 	}
 
