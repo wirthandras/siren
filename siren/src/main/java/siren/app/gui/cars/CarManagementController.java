@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import siren.app.Model;
+import siren.app.TextIds;
 import siren.components.Car;
 import siren.components.ECarType;
 
@@ -27,12 +28,14 @@ public class CarManagementController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		
 		model = Model.getInstance();
 		carType.getItems().addAll(ECarType.values());
 
 		// Create column UserName (Data type of String).
-		TableColumn<Car, String> columnIdentifier = new TableColumn<Car, String>("Rendsz�m");
-		TableColumn<Car, String> columnType = new TableColumn<Car, String>("T�pus");
+		TableColumn<Car, String> columnIdentifier = new TableColumn<Car, String>(resources.getString(TextIds.IDENTIFIER));
+		TableColumn<Car, String> columnType = new TableColumn<Car, String>(resources.getString(TextIds.TYPE));
 
 		columnIdentifier.setCellValueFactory(new PropertyValueFactory<>("identifier"));
 		columnType.setCellValueFactory(new PropertyValueFactory<>("type"));

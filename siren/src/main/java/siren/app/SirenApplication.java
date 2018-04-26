@@ -1,5 +1,7 @@
 package siren.app;
 
+import java.util.ResourceBundle;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,17 +10,18 @@ import javafx.stage.Stage;
 
 public class SirenApplication extends Application {
 
-	private final String title = "siren application";
-
 	public static void main(String[] args) {
 		launch(args);
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource(Descpritors.CAR_PATH));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(Descpritors.CAR_PATH));
+		ResourceBundle texts = ResourceBundle.getBundle("texts");
+		loader.setResources(texts);
+		AnchorPane pane = loader.load();
 		Scene scene = new Scene(pane);
-		primaryStage.setTitle(title);
+		primaryStage.setTitle(texts.getString(TextIds.APP_TITLE));
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
