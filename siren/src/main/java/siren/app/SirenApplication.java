@@ -9,6 +9,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class SirenApplication extends Application {
+	
+	private static final String FXML_DESCRIPTOR = "siren.fxml.descriptor";
 
 	public static void main(String[] args) {
 		launch(args);
@@ -16,7 +18,8 @@ public class SirenApplication extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource(Descpritors.CAR_PATH));
+		String formPath = System.getProperty(FXML_DESCRIPTOR);
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(formPath));
 		ResourceBundle texts = ResourceBundle.getBundle("texts");
 		loader.setResources(texts);
 		AnchorPane pane = loader.load();

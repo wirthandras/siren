@@ -9,13 +9,18 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 public class EmployeeServiceTest {
 
+	private EmployeeService employeeService;
 	private List<Employee> employees;
 
 	@Before
 	public void setUp() {
+
+		employeeService = new EmployeeService();
+
 		employees = new ArrayList<Employee>();
 		employees.add(new Employee("testDoctor1", JobFactory.doctor, true));
 		employees.add(new Employee("testDoctor2", JobFactory.doctor, false));
@@ -30,39 +35,49 @@ public class EmployeeServiceTest {
 	}
 
 	@Test
-	public void testGetEmployeesOnNullEmployees() {
-		EmployeeService empService = new EmployeeService(null);
+	public void testAddAnEmployee() {
 
-		assertNull(empService.getEmployees());
+		Employee testEmployee = Mockito.mock(Employee.class);
+
+		assertNotNull(employeeService.getEmployees());
+		assertEquals(0, employeeService.getEmployees().size());
+		
+		employeeService.add(testEmployee);
+		
+		assertNotNull(employeeService.getEmployees());
+		assertEquals(1, employeeService.getEmployees().size());
+		assertEquals(testEmployee, employeeService.getEmployees().get(0));
+	}
+
+	@Test
+	public void testGetEmployeesOnNullEmployees() {
+		assertNotNull(employeeService.getEmployees());
+		assertEquals(0, employeeService.getEmployees().size());
 	}
 
 	@Test
 	public void testFiterOnNullEmployees() {
-		EmployeeService empService = new EmployeeService(null);
-
-		assertNotNull(empService.filter(JobFactory.nurse));
-		assertEquals(0, empService.filter(JobFactory.nurse).size());
+		assertNotNull(employeeService.filter(JobFactory.nurse));
+		assertEquals(0, employeeService.filter(JobFactory.nurse).size());
 	}
 
 	@Test
 	public void testFindNextOnNullEmployees() {
-		EmployeeService empService = new EmployeeService(null);
-
-		assertNull(empService.findNext(JobFactory.nurse));
+		assertNull(employeeService.findNext(JobFactory.nurse));
 	}
 
 	@Test
 	public void testFindNextOnTestEmployees() {
-		EmployeeService empService = new EmployeeService(employees);
+		employeeService.addAll(employees);
 
-		assertNotNull(empService.findNext(JobFactory.nurse));
+		assertNotNull(employeeService.findNext(JobFactory.nurse));
 	}
 
 	@Test
 	public void testFilterNurseOnTestEmployees() {
-		EmployeeService empService = new EmployeeService(employees);
+		employeeService.addAll(employees);
 
-		assertNotNull(empService.filter(JobFactory.nurse));
-		assertEquals(5, empService.filter(JobFactory.nurse).size());
+		assertNotNull(employeeService.filter(JobFactory.nurse));
+		assertEquals(5, employeeService.filter(JobFactory.nurse).size());
 	}
 }

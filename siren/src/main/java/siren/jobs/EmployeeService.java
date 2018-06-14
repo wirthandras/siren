@@ -9,9 +9,17 @@ public class EmployeeService {
 
 	private List<Employee> employees;
 
-	public EmployeeService(List<Employee> employees) {
+	public EmployeeService() {
 		super();
-		this.employees = employees;
+		this.employees = new ArrayList<Employee>();
+	}
+
+	public void addAll(List<Employee> employees) {
+		this.employees.addAll(employees);
+	}
+
+	public void add(Employee employee) {
+		this.employees.add(employee);
 	}
 
 	public List<Employee> getEmployees() {
@@ -19,9 +27,8 @@ public class EmployeeService {
 	}
 
 	public Employee findNext(IJob job) {
-		if (employees != null) {
-			List<Employee> filteredEmployees = new ArrayList<Employee>(filter(job));
-			//TODO improve
+		List<Employee> filteredEmployees = new ArrayList<Employee>(filter(job));
+		if (filteredEmployees.size() > 0) {
 			return filteredEmployees.get(0);
 		} else {
 			return null;
@@ -30,11 +37,9 @@ public class EmployeeService {
 
 	public Set<Employee> filter(IJob job) {
 		Set<Employee> filteredEmployees = new HashSet<Employee>();
-		if (employees != null) {
-			for (Employee e : employees) {
-				if (e.getJob().equals(job)) {
-					filteredEmployees.add(e);
-				}
+		for (Employee e : employees) {
+			if (e.getJob().equals(job)) {
+				filteredEmployees.add(e);
 			}
 		}
 		return filteredEmployees;

@@ -28,9 +28,10 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Button layoutX="69.0" layoutY="346.0" mnemonicParsing="false" text="Hozzáad" />
-                  <TextField layoutX="60.0" layoutY="5.0" prefHeight="25.0" prefWidth="132.0" />
+                  <Button layoutX="69.0" layoutY="346.0" mnemonicParsing="false" onAction="#add" text="Hozzáad" />
+                  <TextField fx:id="inputName" layoutX="60.0" layoutY="5.0" prefHeight="25.0" prefWidth="132.0" />
                   <Label layoutY="5.0" text="Név:" />
+                  <CheckBox fx:id="cb24h" layoutX="60.0" layoutY="38.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="132.0" text="24 órás szolgálat?" />
                </children>
             </Pane>
          </children>

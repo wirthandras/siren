@@ -1,5 +1,7 @@
 package siren.app;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,6 +50,11 @@ public class ModelTest {
 		Mockito.when(c.getIdentifier()).thenReturn(newIdentifier);
 
 		m.addCar(c);
+	}
+
+	@Test
+	public void testEmployeeServiceNotNull() {
+		assertNotNull(m.getEmployeeService());
 	}
 
 }
