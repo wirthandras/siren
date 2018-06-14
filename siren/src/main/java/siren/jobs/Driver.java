@@ -1,6 +1,6 @@
 package siren.jobs;
 
-public class Driver implements IJob {
+public class Driver extends Job {
 
 	public boolean isNightWorking() {
 		return true;

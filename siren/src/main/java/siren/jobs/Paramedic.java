@@ -1,6 +1,6 @@
 package siren.jobs;
 
-public class Paramedic implements IJob {
+public class Paramedic extends Job {
 
 	@Override
 	public boolean isNightWorking() {
