@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -35,9 +36,9 @@ public class CarManagementController implements Initializable {
 		model = Model.getInstance();
 		carType.getItems().addAll(ECarType.values());
 
-		// Create column UserName (Data type of String).
 		String labelId = resources.getString(TextIds.IDENTIFIER);
 		String labelType = resources.getString(TextIds.TYPE);
+		String labelTableEmpty = resources.getString(TextIds.TABLE_EMPTY);
 
 		TableColumn<Car, String> columnIdentifier = new TableColumn<Car, String>(labelId);
 		TableColumn<Car, String> columnType = new TableColumn<Car, String>(labelType);
@@ -47,11 +48,14 @@ public class CarManagementController implements Initializable {
 
 		tableView.getColumns().add(columnIdentifier);
 		tableView.getColumns().add(columnType);
+		tableView.setPlaceholder(new Label(labelTableEmpty));
 
 		buttonDelete.setOnAction(e -> {
 			Car selectedItem = tableView.getSelectionModel().getSelectedItem();
 			tableView.getItems().remove(selectedItem);
 		});
+		
+		//TODO remove from model
 
 	}
 

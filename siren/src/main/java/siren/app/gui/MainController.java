@@ -10,6 +10,17 @@ import javafx.scene.control.TreeView;
 import javafx.scene.layout.Pane;
 
 public class MainController implements Initializable {
+	
+	private final String root = "Root";
+
+	private final String empName = "Employees";
+	private final String empPath = "/siren/app/gui/employees/EmployeeManagement.fxml";
+	
+	private final String carName = "Cars";
+	private final String carPath = "/siren/app/gui/cars/CarManagement.fxml";
+	
+	private final String shiftsName = "Shifts";
+	private final String shiftsPath = "/siren/app/gui/shifts/ShiftsManagement.fxml";
 
 	@FXML
 	private TreeView<String> treeView;
@@ -18,14 +29,16 @@ public class MainController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		TreeItem<String> rootItem = new TreeItem<String>("Root");
+		TreeItem<String> rootItem = new TreeItem<String>(root);
 
-		SirenTreeItem itemEmployees = new SirenTreeItem("Employees",
-				"/siren/app/gui/employees/EmployeeManagement.fxml");
+		SirenTreeItem itemEmployees = new SirenTreeItem(empName, empPath);
 		rootItem.getChildren().add(itemEmployees);
 
-		SirenTreeItem itemCars = new SirenTreeItem("Cars", "/siren/app/gui/cars/CarManagement.fxml");
+		SirenTreeItem itemCars = new SirenTreeItem(carName, carPath);
 		rootItem.getChildren().add(itemCars);
+		
+		SirenTreeItem itemShifts = new SirenTreeItem(shiftsName, shiftsPath);
+		rootItem.getChildren().add(itemShifts);
 
 		treeView.setRoot(rootItem);
 		treeView.setShowRoot(false);
@@ -37,7 +50,7 @@ public class MainController implements Initializable {
 
 	private void resetLayout(TreeItem<String> item) {
 		subPane.getChildren().clear();
-		subPane.getChildren().add(((SirenTreeItem)item).getPane());
+		subPane.getChildren().add(((SirenTreeItem) item).getPane());
 	}
 
 }
